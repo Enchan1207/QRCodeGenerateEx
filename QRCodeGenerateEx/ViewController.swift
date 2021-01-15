@@ -13,21 +13,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 描画
         let context = CIContext()
-        guard let filter = CIFilter(name: "CIEdges") else {
-            print("Filter not found!")
+        let ciImage: CIImage?
+        ciImage = CIImage(color: .white)
+//        ciImage = CIImage(contentsOf: URL(string: "https://ayame-store.jp/images/2020/12/th/DSC_1129.JPG")!)
+        
+        guard ciImage != nil else {return}
+        
+        // フィルタ設定
+        let filterName = "CICode128BarcodeGenerator"
+        guard let filter = CIFilter(name: filterName) else {
+            print("Filter not found: \(filterName)")
             return
         }
-
-        filter.setValue(0.8, forKey: kCIInputIntensityKey)
         
-        let ciImage = CIImage(contentsOf: URL(string: "https://ayame-store.jp/files/theme_configs/main_image_1.JPG")!)!
+        let message = "Okaaaay, Fantastiiiic"
+        let messageData = message.data(using: .isoLatin1)
+        filter.setValue(messageData, forKey: "inputMessage")
         
-        filter.setValue(ciImage, forKey: kCIInputImageKey)
-        
-        let output = filter.outputImage!
-        let cgImage = context.createCGImage(output, from: output.extent)!
+        // フィルタ済みの画像を取得して
+        guard let output = filter.outputImage else {
+            print("Couldn't get output image.")
+            return
+        }
+        guard let cgImage = context.createCGImage(output, from: output.extent) else {return}
  
         // UIIに出力
         let uiImage = UIImage(cgImage: cgImage)
