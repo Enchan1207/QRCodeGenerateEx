@@ -15,6 +15,7 @@
 		9E21D1F425B1ABC100DE87CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E21D1F225B1ABC100DE87CC /* LaunchScreen.storyboard */; };
 		9E21D1FF25B1ABC100DE87CC /* QRCodeGenerateExTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21D1FE25B1ABC100DE87CC /* QRCodeGenerateExTests.swift */; };
 		9E21D20A25B1ABC100DE87CC /* QRCodeGenerateExUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21D20925B1ABC100DE87CC /* QRCodeGenerateExUITests.swift */; };
+		9E21D22325B2609300DE87CC /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21D22225B2609300DE87CC /* BarcodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9E21D20525B1ABC100DE87CC /* QRCodeGenerateExUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRCodeGenerateExUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E21D20925B1ABC100DE87CC /* QRCodeGenerateExUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerateExUITests.swift; sourceTree = "<group>"; };
 		9E21D20B25B1ABC100DE87CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E21D22225B2609300DE87CC /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				9E21D1E925B1ABC000DE87CC /* SceneDelegate.swift */,
 				9E21D1EB25B1ABC000DE87CC /* ViewController.swift */,
 				9E21D1ED25B1ABC000DE87CC /* Main.storyboard */,
+				9E21D22225B2609300DE87CC /* BarcodeView.swift */,
 				9E21D1F025B1ABC100DE87CC /* Assets.xcassets */,
 				9E21D1F225B1ABC100DE87CC /* LaunchScreen.storyboard */,
 				9E21D1F525B1ABC100DE87CC /* Info.plist */,
@@ -261,6 +264,7 @@
 				9E21D1EC25B1ABC000DE87CC /* ViewController.swift in Sources */,
 				9E21D1E825B1ABC000DE87CC /* AppDelegate.swift in Sources */,
 				9E21D1EA25B1ABC000DE87CC /* SceneDelegate.swift in Sources */,
+				9E21D22325B2609300DE87CC /* BarcodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

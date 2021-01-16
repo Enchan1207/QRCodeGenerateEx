@@ -9,43 +9,23 @@ import UIKit
 import CoreImage
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var barcodeView: BarcodeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = CIContext()
-        let ciImage: CIImage?
-        ciImage = CIImage(color: .white)
-//        ciImage = CIImage(contentsOf: URL(string: "https://ayame-store.jp/images/2020/12/th/DSC_1129.JPG")!)
+        let message = "Hello, World!!"
+        let descriptor = CIQRCodeDescriptor(payload: message.data(using: .utf8)!, symbolVersion: 1, maskPattern: 0, errorCorrectionLevel: .levelM)!
         
-        guard ciImage != nil else {return}
+        BarcodeView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)).generateCodeFromDescriptor(descriptor: descriptor)
         
-        // フィルタ設定
-        let filterName = "CICode128BarcodeGenerator"
-        guard let filter = CIFilter(name: filterName) else {
-            print("Filter not found: \(filterName)")
-            return
-        }
-        
-        let message = "Okaaaay, Fantastiiiic"
-        let messageData = message.data(using: .isoLatin1)
-        filter.setValue(messageData, forKey: "inputMessage")
-        
-        // フィルタ済みの画像を取得して
-        guard let output = filter.outputImage else {
-            print("Couldn't get output image.")
-            return
-        }
-        guard let cgImage = context.createCGImage(output, from: output.extent) else {return}
- 
-        // UIIに出力
-        let uiImage = UIImage(cgImage: cgImage)
-        let imageView = UIImageView(image: uiImage)
-        imageView.contentMode = .scaleAspectFit
-        imageView.frame = self.view.frame
-        self.view.addSubview(imageView)
-        
+        barcodeView.descriptor = descriptor
+        //
+        //        let bView = BarcodeView(descriptor: descriptor)
+        //        self.view.addSubview(bView)
     }
-
-
+    
+    
 }
+
